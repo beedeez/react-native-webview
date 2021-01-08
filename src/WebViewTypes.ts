@@ -784,7 +784,7 @@ export interface MacOSWebViewProps extends WebViewSharedProps {
 export interface AndroidWebViewProps extends WebViewSharedProps {
   onNavigationStateChange?: (event: WebViewNavigation) => void;
   onContentSizeChange?: (event: WebViewEvent) => void;
-
+  onBlobFileDownload?: (event: WebViewEvent) => void;
   /**
    * Function that is invoked when the `WebView` process crashes or is killed by the OS.
    * Works only on Android (minimum API level 26).
