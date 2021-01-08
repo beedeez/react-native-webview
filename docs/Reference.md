@@ -15,6 +15,7 @@ This document lays out the current public properties and methods for the React N
 - [`nativeConfig`](Reference.md#nativeconfig)
 - [`onError`](Reference.md#onerror)
 - [`onRenderProcessGone`](Reference.md#onRenderProcessGone)
+- [`onBlobFileDownload`](Reference.md#onBlobFileDownload)
 - [`onLoad`](Reference.md#onload)
 - [`onLoadEnd`](Reference.md#onloadend)
 - [`onLoadStart`](Reference.md#onloadstart)
@@ -259,6 +260,34 @@ The `nativeConfig` prop expects an object with the following keys:
 | object | No       | iOS, Android, macOS |
 
 ---
+
+### `onBlobFileDownload`[⬆](#props-index)<!-- Link generated with jump2header -->
+
+Function that is invoked when open a link beginning with `blob://`, only can be used in android, you can intercept the link by `onShouldStartLoadWithRequest` in ios.
+
+| Type     | Required | Platform            |
+| -------- | -------- | ------------------- |
+| function | No       | Android |
+
+Example:
+
+```jsx
+<WebView
+  source={{ uri: 'https://reactnative.dev' }}
+  onBlobFileDownload={(syntheticEvent) => {
+    const { nativeEvent } = syntheticEvent;
+    this.url = nativeEvent.url;
+  }}
+/>
+```
+Function passed to `onBlobFileDownload` is called with a SyntheticEvent wrapping a nativeEvent with these properties:
+
+```
+url
+contentDisposition
+mimetype
+```
+
 
 ### `onError`[⬆](#props-index)<!-- Link generated with jump2header -->
 
