@@ -294,8 +294,6 @@ const WebViewComponent = forwardRef<{}, AndroidWebViewProps>(
         hasOnOpenWindowEvent={onOpenWindowProp !== undefined}
         onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
         ref={webViewRef}
-        // TODO: find a better way to type this.
-        // @ts-expect-error source is old arch
         source={sourceResolved}
         newSource={newSource}
         style={webViewStyles}
